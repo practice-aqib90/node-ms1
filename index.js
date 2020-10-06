@@ -5,6 +5,14 @@ const app = express();
 const PORT = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3001;
 const ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
+app.get('/', (req, res) => {
+    console.log('/ called');
+    res.send({
+        status: 200,
+        message: 'Service is running'
+    })
+})
+
 app.get('/getInfo', (req, res) => {
     console.log('getInfo called');
     res.send({
